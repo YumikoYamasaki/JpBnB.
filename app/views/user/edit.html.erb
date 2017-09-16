@@ -1,0 +1,7 @@
+<%= form_tag("/user/#{@user.id}/update", {multipart: true}) do %>
+    <input name="lname" value="<%= @user.lname %>" placeholder="姓">
+    <input name="fname" value="<%= @user.fname %>" placeholder="名">
+    <input name="user_img" type="file">
+    <input name="email" value="<%= @user.email %>" placeholder="email">
+    <input type="submit" value="編集">
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_tag("/find/#{@post.id}/update", {multipart: true}) do %>
+    <input name="title" value="<%= @post.title %>">
+    <input name="location" value="<%= @post.location %>" >
+    <%= file_field_tag :picture %> 
+    <textarea name="content"><%= @post.content %></textarea>
+    <input type="submit" value="更新">
+<% end %>

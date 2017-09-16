@@ -1,0 +1,30 @@
+<body>
+    <h1>JpBnB.</h1>
+    <h4>現地の「日常」の中で「非日常」な旅をしよう。</h4>
+    <%= @error_message %>
+    <%= form_tag("/user/login") do %>
+      <input name="email" class = "form lgin" value="<%= @email %>" placeholder="email">
+      <input name="password" class = "form lgin" type="password" placeholder="password">
+      <button type="submit" class="btn login"><span>ログイン</span></button>
+    <% end %>
+    
+    <%= link_to("/signup") do %>
+        <span class="btn new">アカウント作成</span>
+    <% end %>
+    
+    <div class="ex">
+      <h5>宿泊先の一例</h5>
+      <%= link_to(">>もっと見る", "/find") %>
+      <% @posts.each do |showing| %>
+      <div class="showing">
+        <div class="show_picture">
+          <%= link_to image_tag(showing.picture_url), "/find/#{showing.id}" %>
+        </div>
+        <div class="show_title">
+          <%= link_to(showing.title, "/find/#{showing.id}") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+</body>

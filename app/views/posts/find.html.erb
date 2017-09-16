@@ -1,0 +1,15 @@
+<h1>物件一覧</h1>
+<%= page_entries_info @lists %>
+<div class="posts">
+  <% @posts.each do |post| %>
+  <div class="post">
+      <div class="post_picture">
+        <%= link_to image_tag(post.picture_url), "/find/#{post.id}" %>
+      </div>
+      <div class="post_title">
+        <%= link_to(post.title, "/find/#{post.id}") %>
+      </div>
+  </div>
+  <% end %>
+</div>
+<%= paginate @lists %>

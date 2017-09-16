@@ -1,0 +1,11 @@
+<h1>物件一覧</h1>
+<% @location.each do |location| %>
+  <div class="post">
+      <div class="post_picture">
+          <%= image_tag(location.picture_url, size:'100x100') if location.picture.present? %>
+      </div>
+      <div class="post_title">
+          <%= link_to(location.title, "/find/#{location.id}") %>
+      </div>
+  </div>
+<% end %>

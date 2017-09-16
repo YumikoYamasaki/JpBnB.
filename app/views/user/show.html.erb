@@ -1,0 +1,22 @@
+<%= render 'user/show' %>
+
+<ul class="user-tabs">
+    <li class="active"><%= link_to("投稿", "/user/#{@user.id}") %></li>
+    <li><%= link_to("いいね!", "/user/#{@user.id}/like") %></li>
+</ul>
+
+<h3>物件</h3>
+<%= page_entries_info @lists %>
+<div class="posts">
+  <% @user.posts.each do |post| %>
+  <div class="post">
+      <div class="post_picture">
+          <%= link_to image_tag(post.picture_url, size:'100x100'), "/find/#{post.id}" %>
+      </div>
+      <div class="post_title">
+          <%= link_to(post.title, "/find/#{post.id}") %>
+      </div>
+  </div>
+  <% end %>
+</div>
+<%= paginate @lists %>

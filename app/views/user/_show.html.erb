@@ -1,0 +1,4 @@
+<h3><%= @user.lname %> <%= @user.fname %></h3>
+<img src="<%= "/user_img/#{@user.user_img}" %>" id="user_img">
+<p><%= @user.birth %></p>
+<%= link_to("編集", "/user/#{@user.id}/edit") %>

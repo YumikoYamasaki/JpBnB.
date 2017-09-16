@@ -1,0 +1,33 @@
+<h1>JpBnB.</h1>
+<h4>さあ、始めよう。</h4>
+<%= form_tag("/user/create") do %>
+<input name="lname" class = "form new" value="<%= @user.lname %>" placeholder="姓">
+<input name="fname" class = "form new" value="<%= @user.fname %>" placeholder="名">
+<input name="email" class = "form new" value="<%= @user.email %>" placeholder="email">
+<input name="password" class = "form new" type="password" placeholder="password">
+<div class="bd">
+    <p class="bd_title">生年月日</p>
+    <p class="caution">※ご登録は18歳以上の方に限ります。</p>
+    <div class=bd_form>
+        <select name="year" class="birth year">
+            <option selected disabled value="">年</option>
+            <% @years.each do |year| %>
+                <option value=<%= year %>><%= year %></option>
+            <% end %>
+        </select>
+        <select name="month" class="birth month">
+            <option selected disabled value="">月</option>
+            <% @months.each do |month| %>
+                <option value="<%= month %>"><%= month %></option>
+            <% end %>
+        </select>
+        <select name="day" class="birth day">
+            <option selected disabled value="">日</option>
+            <% @days.each do |day| %>
+                <option value="<%= day %>"><%= day %></option>
+            <% end %>
+        </select>
+    </div>
+</div>
+<button type="submit" class="btn new"><span>アカウント作成</span></button>
+<% end %>

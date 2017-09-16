@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <title>Workspace_JpBnB.</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<header>
+
+    <%= form_tag("/find/search") do %>
+      <div name="searchform" class="searchform">  
+        <input name="location" id="keywords" type="text" placeholder="都道府県">  
+        <input type="submit" value="場所を検索" id="searchBtn" />  
+      </div>
+    <% end %>
+
+
+
+  <% if session[:user_id] %>
+    <div class="menu">
+      <p class="user">id:<%= session[:user_id] %> | <%= @current_user.lname+@current_user.fname %>さん</p>
+      <p><%= link_to("My Page", "/user/#{@current_user.id}") %></p>
+      <p><%= link_to("おもてなし登録","/contribute") %></p>
+      <p><%= link_to("ログアウト", "/user/logout", {method: :post}) %></p>
+    </div>
+  <% elsif not current_page?(controller: 'home', action: 'top') %>
+    <div class="menu">
+      <p class="login"><%= link_to("ログイン", "/out") %></p>
+    </div>
+  <% end %>
+  
+
+</header>
+
+<body id='<%= "#{controller.controller_name}" %>'>
+
+  <% if flash[:notice] %>
+    <div class="flash">
+       <%= flash[:notice] %>
+    </div>
+  <% end %>
+  
+  <div class="contents">
+    <%= yield %>
+  </div>
+
+
+</body>
+
+<footer>
+  <div class="info">
+      <h5>JpBnB.</h5>
+      <ul>
+        <li>会社情報</li>
+        <li>採用情報</li>
+        <li>ポリシー</li>
+        <li>ヘルプ</li>
+      </ul>
+  </div>
+  <div class="info">
+      <h5>おもてなし</h5>
+      <ul>
+        <li>おもてなしする理由</li>
+        <li>おもてなしの心</li>
+        <li>もてなす責任</li>
+        <li>コミュニティーセンター</li>
+      </ul>
+  </div>
+  <div class="copyright">
+    <span>ⒸJpBnB. ,inc.</span>
+  </div>
+</footer>
+
+</html>
