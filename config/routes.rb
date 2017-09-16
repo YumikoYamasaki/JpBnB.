@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post 'create' => "posts#create"
 
   get 'signup' => 'home#signup'
-  get 'out' => 'home#top'
+  get '' => 'home#top'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
