@@ -16,6 +16,7 @@ gem 'rails', '4.2.5'
 #gem 'sqlite3'
 group :production do
   gem 'pg'
+  gem 'puma'
 end
 group :development, :test do
   gem 'sqlite3'
