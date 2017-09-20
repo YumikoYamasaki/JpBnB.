@@ -94,6 +94,7 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     pg (0.21.0)
+    puma (3.10.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.8)
@@ -185,6 +186,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg
+  puma
   pundit
   rails (= 4.2.5)
   rails_12factor
@@ -200,4 +202,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.15.2
+   1.16.0.pre.2
