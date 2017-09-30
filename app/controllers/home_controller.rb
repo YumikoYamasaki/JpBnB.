@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     lname: params[:lname],
     fname: params[:fname],
     email: params[:email],
-    pwd: params[:pwd]
+    password: params[:password]
     )
   end
   
